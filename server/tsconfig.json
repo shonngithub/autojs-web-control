@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "declaration": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": false,
+    "outDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@/*":[
+        "./*"
+      ]
+    }
+  },
+  "exclude": ["node_modules"]
+}

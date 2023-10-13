@@ -1,0 +1,37 @@
+version: '3.8'
+
+services: 
+  db: 
+    image: mysql/mysql-server:5.7.41
+    container_name: db 
+    restart: always 
+    environment: 
+      MYSQL_ROOT_PASSWORD: rootpassword 
+      MYSQL_ROOT_HOST: '%'
+      # MYSQL_USER: myuser 
+      # MYSQL_PASSWORD: mypassword 
+    ports: 
+      - "13306:3306" 
+    volumes: 
+      - ./mysql-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # --bind-address=0.0.0.0 
+      # SELECT User, Host FROM mysql.user;
+    command: --init-file /docker-entrypoint-initdb.d/init.sql
+
+  node: 
+    image: shonnz/autojs_services 
+    container_name: autojs_services 
+    restart: always 
+    environment: 
+      DB_HOST: db 
+      DB_PORT: 3306 
+      DB_USER: root 
+      DB_PWD: rootpassword 
+    ports: 
+      - "80:80" 
+      - "9317:9317" 
+    volumes: 
+      - ./nginx.conf:/etc/nginx/http.d/default.conf 
+    depends_on: 
+      - db
