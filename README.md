@@ -5,7 +5,7 @@ nodejs typescript vuejs  [SoulJs](https://github.com/zrk1993/souljs) [AutoJs](ht
 
 ### 说明
 这是一个客户端使用autojs的web群控系统,集成了前后端服务;
-前端和后端项目分别来自另外的两个github仓库,比较零散,只找到一篇比较老的博客记录了一些部署过程,上手使用很不方便,故整合了两个项目,制作了dockerfile和docker-compose文件;
+前端和后端项目分别来自另外的两个github仓库,比较零散,只找到一篇比较老的博客记录了一些部署过程,上手使用很不方便,故整合了两个项目,制作了docker镜像和docker-compose文件;
 如果只是使用不关注项目本身,下载复制deploy文件夹下docker-compose.yml和init.sql到同一文件夹,执行 docker-compose up -d 即可;
 
 ### 特性(character)
